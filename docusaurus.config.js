@@ -128,7 +128,8 @@ const config = {
       metadatas: [
         { name: 'theme-color', content: '#5970C1' },
         { property: 'og:title', content: site.title },
-        { property: 'og:description', content: site.description }
+        { property: 'og:description', content: site.description },
+        { name: 'google-site-verification', content: '_9bt5DMtLPf2684c1fw3ecwUK4Hvtx1y0JuYTSU3Mak' }
       ]
     }),
 
