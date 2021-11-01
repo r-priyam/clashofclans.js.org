@@ -6,11 +6,18 @@ const sidebars = {
     {
       type: 'category',
       label: 'GENERAL',
-      items: ['intro', {
-        type: 'doc',
-        id: 'changelog',
-        label: 'Changelog'
-      }],
+      items: ['intro',
+        {
+          type: 'doc',
+          id: 'changelog',
+          label: 'Changelog'
+        },
+        {
+          type: 'doc',
+          id: 'updating-to-v2',
+          label: 'Updating to v2'
+        }
+      ],
       collapsed: false
     },
     {

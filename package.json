@@ -46,5 +46,23 @@
     "docusaurus-plugin-typedoc": "^0.16.3",
     "typedoc": "^0.22.6",
     "typedoc-plugin-markdown": "^3.11.3"
-  }
+  },
+  "prettier": {
+		"semi": true,
+		"tabWidth": 4,
+		"printWidth": 140,
+		"singleQuote": true,
+		"quoteProps": "consistent",
+		"bracketSpacing": true,
+		"trailingComma": "none",
+		"overrides": [
+			{
+				"files": "*.md",
+				"options": {
+					"useTabs": false,
+					"tabWidth": 4
+				}
+			}
+		]
+	}
 }

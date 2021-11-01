@@ -3,12 +3,21 @@ slug: custom-events
 title: Custom Events
 ---
 
-This is the summary of a very long blog post,
+```ts
+client.events.addClans(['#8P2QG08P']);
+client.events.setEvent({
+    type: 'CLAN',
+    name: 'clanDescriptionChange',
+    filter: (oldClan, newClan) => {
+        return oldClan.description !== newClan.description;
+    }
+});
 
-Use a `<!--` `truncate` `-->` comment to limit blog post size in the list view.
+client.on('clanDescriptionChange', (oldClan, newClan) => {
+    console.log(oldClan.description, newClan.description);
+});
 
-<!--truncate-->
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet
+(async function () {
+    await client.events.init();
+})();
+```
