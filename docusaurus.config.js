@@ -33,8 +33,13 @@ const config = {
         },
         blog: {
           path: 'guide',
-          showReadingTime: false,
+          blogTitle: 'Guide',
+          postsPerPage: 'ALL',
           routeBasePath: 'guide',
+          showReadingTime: false,
+          blogSidebarCount: 'ALL',
+          blogSidebarTitle: 'Quick Access',
+          blogDescription: 'Guides for clashofclans.js Library',
           editUrl: 'https://github.com/clashperk/clashofclans.js.org/edit/master/'
         },
         theme: {

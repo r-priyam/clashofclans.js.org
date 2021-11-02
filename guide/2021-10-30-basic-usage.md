@@ -1,31 +1,54 @@
 ---
 slug: basic-usage
 title: Basic Usage
-authors: [suvajit, santosh]
+date: 2021-10-30T00:01:00.000Z
 ---
 
-### Get Player Example
+Now that you've installed Node and clashofclans.js, let's start coding!
+
+### Basic Client Usage
 
 ```ts
-// Initialize the API Client
 import { Client } from 'clashofclans.js';
-const clashClient = new Client();
+
+const client = new Client({ keys: ['***'] });
 
 (async function () {
-    const player = await clashClient.getPlayer('#1234');
-    console.log(player); // returns player data if valid tag
+    const clan = await client.getClan('#2PP');
+    console.log(clan);
+
+    try {
+        const data = await client.getPlayer('#2PP');
+        console.log(data);
+    } catch (error) {
+        if (error.status === 404) {
+            console.log('Player not Found!');
+        } else {
+            console.log(error);
+        }
+    }
 })();
 ```
 
-### Get Clan Example
+### Basic Event Handling
 
 ```ts
-// Initialize the API Client
 import { Client } from 'clashofclans.js';
-const clashClient = new Client();
+const client = new Client({ keys: ['***'] });
+
+client.on('maintenanceStart', () => {
+    console.log('Maintenance started!');
+});
+
+client.on('maintenanceEnd', (duration) => {
+    console.log('Maintenance ended!', duration);
+});
+
+client.on('newSeasonStart', (id) => {
+    console.log('New season started!', id);
+});
 
 (async function () {
-    const clan = await clashClient.getClan('#1234');
-    console.log(clan); // returns clans data if valid tag
+    await client.events.init();
 })();
 ```
