@@ -72,3 +72,89 @@ The new method `client.getCurrentWar()` returns info about currently running war
 ```
 
 - `client.init()` method has been replaced with `client.login()`
+
+## Properties Renamed
+
+### Clan
+
+This includes Clan, Searched Clan, Player Clan, Ranked Clan, War Clan and WarLog Clan.
+
+```diff
+- clan.members
++ clan.memberCount
+
+- clan.memberList
++ clan.members
+
+- clan.clanPoints
++ clan.points
+
+- clan.clanLevel
++ clan.level
+
+- clan.clanVersusPoints
++ clan.versusPoints
+
+- clan.requiredTownhallLevel
++ clan.requiredTownHallLevel
+```
+
+### Clan Member
+
+```diff
+- member.donationsReceived
++ member.received
+```
+
+### WarLog, Clan War, CWL Group
+
+**Clan / Opponent**
+
+```diff
+- clan.destructionPercentage
++ clan.destruction
+
+- clan.attacks
++ clan.attackCount
+```
+
+**Clan War Member**
+
+```diff
+- member.townhallLevel
++ member.townHallLevel
+
+- member.opponentAttacks
++ member.defenseCount
+```
+
+**Clan War Attack**
+
+```diff
+- attack.destructionPercentage
++ attack.destruction
+```
+
+### Player
+
+```diff
+- player.donationsReceived
++ player.received
+
+- player.warPreference
++ player.warOptedIn // boolean | null
+```
+
+### Badge and Icon URLs
+
+```diff
+- *.badgeUrls.*
++ *.badge.large
++ *.badge.medium
++ *.badge.small
+
+- *.iconUrls.*
++ *.icon.medium
++ *.icon.small
++ *.icon.tiny
+```

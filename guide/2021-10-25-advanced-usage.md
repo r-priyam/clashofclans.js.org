@@ -20,7 +20,7 @@ const client = new Client({
 const client = new Client({
     retryLimit: 1,
     restRequestTimeout: 5000, // 5 seconds
-    throttler: new QueueThrottler(10) // requests per second
+    throttler: new QueueThrottler(1000 / 10) // milliseconds
 });
 
 // Login with email and password
@@ -35,9 +35,9 @@ const client = new Client({
 ```
 
 :::info
-`BatchThrottler` allows a group of requests to happen every specified time. For example, 20 requests every second.
+`BatchThrottler` allows a group of requests to happen every second. For example, 30 requests every second.
 
-`QueueThrottler` allows requests to happen every x amount of time. For example, 1 request every 60 milliseconds.
+`QueueThrottler` allows requests to happen every x milliseconds. For example, 1 request every 100 milliseconds.
 :::
 
 :::tip

@@ -70,13 +70,33 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Documentation',
+            label: 'Documentation'
           },
           { to: '/guide', label: 'Guide', position: 'left' },
           {
+            type: 'dropdown',
+            label: 'v2.0.0',
+            position: 'right',
+            items: [
+              {
+                label: '2.0.0',
+                href: 'https://clashofclans.js.org/docs',
+              },
+              {
+                href: 'https://www.npmjs.com/package/clashofclans.js/v/1.5.5',
+                label: '1.5.5',
+              }
+            ]
+          },
+          {
+            href: 'https://discord.gg/Eaja7gJ',
+            label: 'Discord',
+            position: 'right'
+          },
+          {
             href: 'https://github.com/clashperk/clashofclans.js',
             label: 'GitHub',
-            position: 'right',
+            position: 'right'
           }
         ],
       },
