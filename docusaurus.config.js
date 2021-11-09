@@ -100,6 +100,11 @@ const config = {
           }
         ],
       },
+      algolia: {
+        appId: 'BH4D9OD16A',
+        indexName: 'clashofclans-js',
+        apiKey: 'c6f235189c1d5eba74bce7baecbd719c',
+      },
       footer: {
         style: 'dark',
         links: [
