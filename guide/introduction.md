@@ -1,5 +1,5 @@
 ---
-slug: introduction
+slug: /
 title: Introduction
 date: 2021-10-31T00:00:00.000Z
 ---

@@ -27,20 +27,12 @@ const config = {
       '@docusaurus/preset-classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        blog: false,
         docs: {
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
           sidebarPath: require.resolve('./.sidebar.config.js'),
           editUrl: 'https://github.com/clashperk/clashofclans.js.org/edit/master/',
-        },
-        blog: {
-          path: 'guide',
-          blogTitle: 'Guide',
-          postsPerPage: 'ALL',
-          routeBasePath: 'guide',
-          showReadingTime: false,
-          blogSidebarCount: 'ALL',
-          blogSidebarTitle: 'Quick Access',
-          blogDescription: 'Guides for clashofclans.js Library',
-          editUrl: 'https://github.com/clashperk/clashofclans.js.org/edit/master/'
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -52,6 +44,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      hideableSidebar: false,
       announcementBar: {
         id: 'wip',
         content: '[WIP] Welcome to v2.0.0 documentation. For old v1.5.5 docs, visit <a target="_blank" href="https://www.npmjs.com/package/clashofclans.js/v/1.5.5">NPM</a>',
@@ -60,6 +53,7 @@ const config = {
         isCloseable: true
       },
       navbar: {
+        hideOnScroll: true,
         title: 'clashofclans.js',
         logo: {
           alt: 'My Site Logo',
@@ -177,8 +171,20 @@ const config = {
         excludeProtected: true,
         sort: ['instance-first']
       })
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'guide',
+        path: 'guide',
+        routeBasePath: 'guide',
+        editCurrentVersion: true,
+        sidebarPath: require.resolve('./.sidebar.guide.js'),
+        editUrl: 'https://github.com/clashperk/clashofclans.js.org/edit/master/'
+      }),
     ]
-  ]
+  ],
 };
 
 module.exports = config;
