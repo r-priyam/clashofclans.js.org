@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Update Submodule
+        run: git pull --recurse-submodules && git submodule update --remote --recursive --init
+
+      - name: Copy CHANGELOG.md
+        run: cp lib/CHANGELOG.md docs/changelog.md
+
+      - name: Install
+        run: yarn
+
+      - name: Build
+        run: yarn build
+
+      - name: README.md
+        run: |
+          echo "# Documentation Branch" >> build/README.md
+          echo "This branch hosts the documentation files used for https://clashofclans.js.org/. No manual commits should ever need to be done to this branch." >> build/README.md
+          echo "## Commits" >> build/README.md
+          echo "- [clashperk/clashofclans.js@$(git rev-parse --short HEAD:lib)](https://github.com/clashperk/clashofclans.js/commit/$(git rev-parse HEAD:lib))" >> build/README.md
+          echo "- [clashperk/clashofclans.js.org@$(git rev-parse --short HEAD)](https://github.com/clashperk/clashofclans.js.org/commit/$(git rev-parse HEAD))" >> build/README.md
+
+      - name: Commit
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          folder: build
+          branch: gh-pages
+          single-commit: true
+          commit-message: Docs build
