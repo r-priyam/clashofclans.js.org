@@ -1,7 +1,6 @@
 ---
 slug: basic-usage
 title: Basic Usage
-date: 2021-10-30T00:01:00.000Z
 ---
 
 Now that you've installed Node and clashofclans.js, let's start coding!

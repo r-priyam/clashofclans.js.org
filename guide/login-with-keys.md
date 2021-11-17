@@ -11,6 +11,7 @@ To login with your own keys, generate the keys by entering a key name, descripti
 <button onClick={async () => {
     const ip = await fetch('https://api.ipify.org/').then((res) => res.text());
     alert(`Your public IP address is ${ip}`);
+    navigator.clipboard.writeText(ip);
 }}>Get Your Public IP</button>
 :::
 

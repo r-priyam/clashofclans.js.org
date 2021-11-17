@@ -1,7 +1,6 @@
 ---
 slug: /
 title: Introduction
-date: 2021-10-31T00:00:00.000Z
 ---
 
 If you're reading this, it probably means you want to learn how to use clashofclans.js. Let's dig in!
@@ -21,6 +20,7 @@ To create an API Key you'll need your public IP address.
 <button onClick={async () => {
     const ip = await fetch('https://api.ipify.org/').then((res) => res.text());
     alert(`Your public IP address is ${ip}`);
+    navigator.clipboard.writeText(ip);
 }}>Get Your Public IP</button>
 :::
 
