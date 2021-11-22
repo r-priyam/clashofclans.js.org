@@ -29,8 +29,6 @@ const config = {
       ({
         blog: false,
         docs: {
-          showLastUpdateTime: true,
-          showLastUpdateAuthor: true,
           sidebarPath: require.resolve('./.sidebar.config.js'),
           editUrl: 'https://github.com/clashperk/clashofclans.js.org/edit/master/',
         },
@@ -179,7 +177,6 @@ const config = {
         id: 'guide',
         path: 'guide',
         routeBasePath: 'guide',
-        editCurrentVersion: true,
         sidebarPath: require.resolve('./.sidebar.guide.js'),
         editUrl: 'https://github.com/clashperk/clashofclans.js.org/edit/master/'
       }),
