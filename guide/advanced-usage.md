@@ -11,6 +11,7 @@ import { Client, BatchThrottler, QueueThrottler } from 'clashofclans.js';
 
 // BatchThrottler Example
 const client = new Client({
+    cache: true, // enable caching
     retryLimit: 1,
     restRequestTimeout: 5000, // 5 seconds
     throttler: new BatchThrottler(30) // requests per queue group
@@ -18,6 +19,7 @@ const client = new Client({
 
 // QueueThrottler Example
 const client = new Client({
+    cache: true,
     retryLimit: 1,
     restRequestTimeout: 5000, // 5 seconds
     throttler: new QueueThrottler(1000 / 10) // milliseconds
