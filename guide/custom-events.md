@@ -28,12 +28,12 @@ client.on('clanDescriptionChange', (oldClan, newClan) => {
 
 :::tip
 
-Custom event names can be anything, but it's recommended to use a name which is related to the event.
+Custom event names can be anything, but it's recommended to use a name that is related to the event.
 For example, if you want to listen for a clan description change event, you should use `clanDescriptionChange`.
 Similarly, `playerNameChange` for player name change event and `warStateChange` for war state change event.
 In other words, you should use either `clan`, `player` or `war` as a prefix of custom event names.
 
-This helps with typing intellisense of the Code Editor / IDE.
+This helps with typing IntelliSense of the Code Editor / IDE.
 
 ```js
 client.on('clanDescriptionChange', (oldClan, newClan) => {});

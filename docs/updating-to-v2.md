@@ -11,40 +11,40 @@ This new version is a complete TypeScript rewrite to convert everything from pla
 All of the methods now have `get` added to the front.
 
 ```diff
-- client.clan();
-+ client.getClan();
+- await client.clan();
++ await client.getClan();
 
-- client.player();
-+ client.getPlayer();
+- await client.player();
++ await client.getPlayer();
 ```
 
 ### Get Current War
 
 ```diff
-- client.currentClanWar();
-+ client.getClanWar();
+- await client.currentClanWar();
++ await client.getClanWar();
 
 // or
 
-+ client.getCurrentWar();
++ await client.getCurrentWar();
 ```
 
-:::caution
+:::info
 The new method `client.getCurrentWar()` returns info about currently running war in the clan for both Regular and CWL Wars.
 :::
 
 ### Get CWL Group
 
 ```diff
-- client.clanWarLeague();
-+ client.clanWarLeagueGroup();
+- await client.clanWarLeague();
++ await client.getClanWarLeagueGroup();
 ```
 
 ### Get CWL Round
 
 ```diff
-- client.clanWarLeagueWar();
-+ client.clanWarLeagueRound();
+- await client.clanWarLeagueWar();
++ await client.getClanWarLeagueRound();
 ```
 
 ### Detailed Clan Members
@@ -56,6 +56,39 @@ The new method `client.getCurrentWar()` returns info about currently running war
 + const clan = await client.getClan('#2PP');
 + await clan.fetchMembers();
 ```
+
+### Error Handling
+
+Additional properties `data.ok` and `data.statusCode` have been removed from class based objects. Now use `try {} catch {}` block to handle errors.
+
+```js
+const { HTTPError } = require('clashofclans.js');
+
+try {
+    const clan = await client.getClan('#2PP');
+} catch (error) {
+    if (error instanceof HTTPError && error.status === 404) {
+        console.log('Clan Not Found.');
+    }
+}
+
+try {
+    const data = await client.getClanWar('#2PP');
+} catch (error) {
+    if (error instanceof HTTPError && error.reason === 'notFound') {
+        console.log('Clan Not Found.');
+    }
+    if (error instanceof HTTPError && error.reason === 'notInWar') {
+        console.log('Clan is not in War.');
+    }
+}
+```
+
+:::info
+The `HTTPError` class is a custom error class that is thrown when the API returns an error. Also we have customized few other errors that are thrown when the API returns insufficient data, e.g `notInWar` error for `Client#getClanWar()` method.
+
+Expected values for `HTTPError.reason` are `notFound`, `notInWar`, `accessDenied`, `accessDenied.invalidIp`, `privateWarLog`, `badRequest`, `requestThrottled`, `serviceUnavailable`, `requestAborted`, and `unknownException`.
+:::
 
 ### Other Changes
 
@@ -71,7 +104,7 @@ The new method `client.getCurrentWar()` returns info about currently running war
 + client.getSeasonRankings(seasonId, [options]);
 ```
 
-- `client.init()` method has been replaced with `client.login()`
+-   `client.init()` method has been replaced with `client.login()`
 
 ## Properties Renamed
 
@@ -143,6 +176,13 @@ This includes Clan, Searched Clan, Player Clan, Ranked Clan, War Clan and WarLog
 
 - player.warPreference
 + player.warOptedIn // boolean | null
+```
+
+### Troop
+
+```diff
+- troop.superTroopIsActive
++ troop.isActive
 ```
 
 ### Badge and Icon URLs

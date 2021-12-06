@@ -20,7 +20,7 @@ jobs:
       - name: Commit Changes
         uses: EndBug/add-and-commit@v7
         with:
-          message: 'chore: commit from github-actions'
+          message: 'chore: update git submodules'
           default_author: github_actions
 
       - name: Copy CHANGELOG.md

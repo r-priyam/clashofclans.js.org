@@ -3,7 +3,11 @@ slug: /internal-caching
 title: Internal Caching
 ---
 
-This is based on the [Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) headers returned by the API. If internal caching is enabled, objects will be cached automatically by the client until they are stale. By default, this is disabled.
+This is based on the [Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) headers returned by the API. If internal caching is enabled, objects will be cached automatically by the client until they are stale.
+
+:::info
+By default, internal caching is disabled.
+:::
 
 ## Enable Caching
 

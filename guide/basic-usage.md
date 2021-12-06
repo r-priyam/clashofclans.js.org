@@ -20,7 +20,7 @@ const client = new Client({ keys: ['***'] });
         const data = await client.getPlayer('#2PP');
         console.log(data);
     } catch (error) {
-        if (error.status === 404) {
+        if (error.reason === 'notFound') {
             console.log('Player not Found!');
         } else {
             console.log(error);

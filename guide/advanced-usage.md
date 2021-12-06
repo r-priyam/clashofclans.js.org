@@ -31,7 +31,7 @@ const client = new Client({
         email: '***',
         password: '***',
         keyCount: 2,
-        keyName: 'MyKey'
+        keyName: 'Project_XYZ'
     });
 })();
 ```
@@ -39,9 +39,9 @@ const client = new Client({
 :::info
 `BatchThrottler` allows a group of requests to happen every second. For example, 30 requests every second.
 
-`QueueThrottler` allows requests to happen every x milliseconds. For example, 1 request every 100 milliseconds.
+`QueueThrottler` allows requests to happen every x milliseconds. For example, a single request every 100 milliseconds.
 :::
 
-:::tip
-The library will revoke any keys which match this `keyName` but do not match the current IP address. To avoid conflict with other projects, use different `keyName` for different projects.
+:::caution
+The library will revoke any key which matches this `keyName` but does not match the current IP address. To avoid conflict with other projects, use a different `keyName` for each project.
 :::
