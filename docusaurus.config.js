@@ -2,6 +2,7 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const package = require('./lib/package.json');
 
 const site = {
   title: 'clashofclans.js',
@@ -67,11 +68,11 @@ const config = {
           { to: '/guide', label: 'Guide', position: 'left' },
           {
             type: 'dropdown',
-            label: 'v2.0.0',
+            label: `v${package.version}`,
             position: 'right',
             items: [
               {
-                label: '2.0.0',
+                label: package.version,
                 href: 'https://clashofclans.js.org/docs',
               },
               {
