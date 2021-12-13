@@ -26,6 +26,11 @@ jobs:
       - name: Copy CHANGELOG.md
         run: cp lib/CHANGELOG.md docs/changelog.md
 
+      - name: Clone Assets
+        run: |
+          git clone https://github.com/Statscell/clash-assets.git
+          cp clash-assets/troops/icons/* -r static/assets
+
       - name: Install
         run: yarn
 
