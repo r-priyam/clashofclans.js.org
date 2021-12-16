@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkclashofclans_js_org=self.webpackChunkclashofclans_js_org||[]).push([[5256],{5256:function(s,c,a){a.r(c)}}]);
