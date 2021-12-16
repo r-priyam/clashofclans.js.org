@@ -87,7 +87,7 @@ try {
 :::info
 The `HTTPError` class is a custom error class that is thrown when the API returns an error. Also we have customized few other errors that are thrown when the API returns insufficient data, e.g `notInWar` error for `Client#getClanWar()` method.
 
-Expected values for `HTTPError.reason` are `notFound`, `notInWar`, `accessDenied`, `accessDenied.invalidIp`, `privateWarLog`, `badRequest`, `requestThrottled`, `serviceUnavailable`, `requestAborted`, and `unknownException`.
+Expected values for `HTTPError.reason` are `notFound`, `notInWar`, `accessDenied`, `accessDenied.invalidIp`, `privateWarLog`, `badRequest`, `requestThrottled`, `inMaintenance`, `requestAborted`, and `unknownException`.
 :::
 
 ### Other Changes
