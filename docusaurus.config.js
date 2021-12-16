@@ -66,6 +66,7 @@ const config = {
             label: 'Documentation'
           },
           { to: '/guide', label: 'Guide', position: 'left' },
+          { to: '/docs/changelog', label: 'Changelog', position: 'left' },
           {
             type: 'dropdown',
             label: `v${package.version}`,
